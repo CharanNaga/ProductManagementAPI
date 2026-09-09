@@ -1,0 +1,27 @@
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
+namespace ProductManagementAPI.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class HealthController : ControllerBase
+    {
+        private readonly ILogger<HealthController> _logger;
+        public HealthController(ILogger<HealthController> logger)
+        {
+            _logger = logger;
+        }
+
+        [HttpGet]
+        public IActionResult Get()
+        {
+            _logger.LogInformation("Health check endpoint was called successfully.");
+            return Ok(new
+            {
+                Status = "Healthy",
+                Message = "Product Management API is running successfully."
+            });
+        }
+    }
+}
