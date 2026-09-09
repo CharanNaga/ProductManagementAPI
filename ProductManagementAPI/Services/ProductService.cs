@@ -5,7 +5,7 @@ using ProductManagementAPI.Repositories;
 
 namespace ProductManagementAPI.Services
 {
-    public class ProductService
+    public class ProductService : IProductService
     {
         // Repository instance used to perform database operations
         private readonly IProductRepository _repository;
